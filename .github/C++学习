@@ -1,1 +1,123 @@
+include<iostream>
+using namespace std;
+#include<string>
+#define N 50
+void qin()
+{
+	system("pause");
+	system("cls");
+}
+void panduan(int i)
+{
+	if (i == 0)
+		cout << "数据库无数据" << endl;
+}
+struct  lxr
+{
+	char name[N];
+	char age[N];
+	char sex[N];
+	char dizhi[N];
 
+};
+int main()
+{
+	int a,b,c,d,n = 1;
+	int i = 0;
+	char na[N] = {'0'};
+	struct lxr arr[N];
+		while (true)
+		{
+			int flag = 1;
+			cout << "1.添加联系人" << endl << "2.删除联系人" << endl << "3.查找联系人" << endl
+				<< "4.修改联系人" << endl << "5.清空联系人" << endl<< "6.显示所有联系人=-=" << endl << "7.退出" << endl;
+			cin >> n;
+			switch (n)
+			{
+			case 1:
+				cout << "请输入添加的联系人信息"<<endl;
+				cin>> arr[i].name >> arr[i].age >> arr[i].sex >> arr[i].dizhi;
+				i++;
+				qin();
+				break;
+			case 2:
+				cout << "请输入删除的联系人信息" << endl;
+				cin >> na;
+				for (int n = 0; n <= i; n++)
+				{
+					flag = 1;
+					if (strcmp(na, arr[n].name) == 0)
+					{
+						arr[n] = arr[i];
+						break;
+					}
+					else
+					{
+						flag = 0;
+					}
+				}
+				if (flag == 0)
+					cout << "凸(艹皿艹 )，没这个人，敢耍老子"<<endl;
+				i--;
+				cout << "删除成功" << endl;
+				qin();
+				break;
+			case 3:
+				cout << "请输入查找的联系人信息"<<endl;
+				cin >> na;
+				for (int n = 0; n <= i; n++)
+				{
+					flag = 1;
+					if (strcmp(na, arr[n].name) == 0)
+					{
+						cout << "find it!" << endl;
+						cout << arr[n].name <<"  " << arr[n].age <<"  " << arr[n].sex <<"  " << arr[n].dizhi;
+						break;
+					}
+					else
+					{
+						flag = 0;
+					}
+				}
+				if (flag == 0)
+				{
+					cout << "凸(艹皿艹 )，没这个人，敢耍老子"<<endl;
+				}
+					qin();
+				break;
+			case 4:
+				cout << "请输入修改的联系人信息" << endl;
+				cin >> na;
+				for (int n = 0; n <=i; n++)
+				{
+					flag = 1;
+					if (strcmp(na, arr[n].name) == 0)
+					{
+						cout << "下面输入修改的信息:" << endl;
+						cin >> arr[n].name >> arr[n].age >> arr[n].sex >> arr[n].dizhi;
+					}
+					else
+						flag = 0;
+				}
+				if (flag == 0)
+					cout << "凸(艹皿艹 )，没这个人，敢耍老子";
+				qin();
+				break;
+			case 5:
+				i = 0;
+				qin();
+			case 6:
+				for (int n = 0; n <i; n++)
+				{
+					cout << arr[n].name << "  " << arr[n].age << "  " << arr[n].sex << "  " << arr[n].dizhi<<endl;
+				}
+				qin();
+				break;
+			case 7:
+				cout << "欢迎下次使用" << endl;
+					system("pause");
+					return 0;
+				break;
+			}
+		}
+}
